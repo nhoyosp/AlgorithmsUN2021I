@@ -1,0 +1,1851 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "lab6.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "toc_visible": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N1ok_-56OjB1"
+      },
+      "source": [
+        "# I Solving the Sum of Two Digits Programming Challenge"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MMY7kmDSO0KM"
+      },
+      "source": [
+        "## C++"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2pGGf9BkPNIk",
+        "outputId": "62812b8c-1c46-46b3-97a5-5abad5b84956"
+      },
+      "source": [
+        "%%writefile sum.cpp\n",
+        "#include <iostream>\n",
+        "\n",
+        "int sum_of_two_digits(int first_digit, int second_digit) {\n",
+        "    return first_digit + second_digit;\n",
+        "}\n",
+        "\n",
+        "int main() {\n",
+        "    int a = 0;\n",
+        "    int b = 0;\n",
+        "    std::cin >> a;\n",
+        "    std::cin >> b;\n",
+        "    std::cout << sum_of_two_digits(a, b);\n",
+        "    return 0;\n",
+        "}"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing sum.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0G3ZKOYAPXSU",
+        "outputId": "267604bf-7d31-4c5e-faea-77b5a66705cb"
+      },
+      "source": [
+        "!g++ sum.cpp -o sum\n",
+        "!./sum"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "7 10\n",
+            "17"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iNkG2HqfTl9c"
+      },
+      "source": [
+        "### Test input output files"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aTzU2efzMxly",
+        "outputId": "ddc986c5-3b96-4d7e-ae8f-fe4157e280e3"
+      },
+      "source": [
+        "%%writefile input1.txt\n",
+        "4 8"
+      ],
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting input1.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pdkfsvs-T0Wr"
+      },
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zBJ0Gc0NQRet",
+        "outputId": "6316deb2-c43f-4950-c186-14c0335d8267"
+      },
+      "source": [
+        "%%writefile output1.txt\n",
+        "12"
+      ],
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing output1.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IjEcIx63PJAN",
+        "outputId": "d3f536eb-3caa-4047-fae0-5432c63bf72b"
+      },
+      "source": [
+        "%%writefile input2.txt\n",
+        "-5 9"
+      ],
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing input2.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Up9gOrxURTmd",
+        "outputId": "27f384cb-641e-4d85-fa6a-1110484712ef"
+      },
+      "source": [
+        "%%writefile output2.txt\n",
+        "4"
+      ],
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing output2.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PST6G-s-Pwgc",
+        "outputId": "080d87ac-c752-49fb-d4a5-50a8777bd31e"
+      },
+      "source": [
+        "!./sum < input1.txt"
+      ],
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "12"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cKxZOjSlRfIN",
+        "outputId": "d0066779-5154-46db-b228-41d094adc848"
+      },
+      "source": [
+        "!./sum < input2.txt"
+      ],
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "4"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "gMz7YLssPk4k"
+      },
+      "source": [
+        "\n"
+      ],
+      "execution_count": 17,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Qw2TQWCCUwqk"
+      },
+      "source": [
+        "### Comparing files with grep\n",
+        "\n",
+        "https://askubuntu.com/questions/546796/comparing-two-text-files"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "WVIaAmMKU4QM"
+      },
+      "source": [
+        "!grep -xvFf output1.txt output1.txt "
+      ],
+      "execution_count": 192,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MQU8gPPjQuYO",
+        "outputId": "efed75ae-97b5-4bd8-a126-6fb9a60d75a9"
+      },
+      "source": [
+        "!grep -xvFf output1.txt output2.txt "
+      ],
+      "execution_count": 193,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "4\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jYL9OuYBTD_l",
+        "outputId": "fe6b4f33-3e5e-4528-aeea-8080b7ae46e0"
+      },
+      "source": [
+        "!grep -xvFf output2.txt output1.txt "
+      ],
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "12\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Jlja0Xm4TX9M"
+      },
+      "source": [
+        "!./sum < input1.txt> ctest1.txt\n",
+        "!grep -xvFf output1.txt ctest1.txt"
+      ],
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "g9OIUZA_QLCQ"
+      },
+      "source": [
+        "!./sum < input2.txt > ctest2.txt\n",
+        "!grep -xvFf output2.txt ctest2.txt"
+      ],
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3BgOaDjUVJk6"
+      },
+      "source": [
+        "## Python"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DBvl-T0CTN_8",
+        "outputId": "3bee44ad-8fa6-4786-c88a-1c60ab9047dc"
+      },
+      "source": [
+        "%%writefile sum.py\n",
+        "# python3\n",
+        "\n",
+        "\n",
+        "def sum_of_two_digits(first_digit, second_digit):\n",
+        "    return first_digit + second_digit\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "    a, b = map(int, input().split())\n",
+        "    print(sum_of_two_digits(a, b))"
+      ],
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing sum.py\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QKoKM11_WGyF",
+        "outputId": "9e838b5e-c7d9-4146-c138-c0a30cea4369"
+      },
+      "source": [
+        "!python sum.py"
+      ],
+      "execution_count": 141,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "2 16\n",
+            "18\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cocFbPRTWrqt",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "394e4212-5cf6-43d3-cfde-103f5e9acc11"
+      },
+      "source": [
+        "!python sum.py  < input1.txt> ptest1.txt\n",
+        "!grep -xvFf output1.txt ptest1.txt"
+      ],
+      "execution_count": 194,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "120279\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MorKTa-XXASN"
+      },
+      "source": [
+        "!python sum.py  < input2.txt> ptest2.txt\n",
+        "!grep -xvFf output2.txt ptest2.txt"
+      ],
+      "execution_count": 195,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uvP-mOubW_5F"
+      },
+      "source": [
+        "# II Solving The Maximum Pairwise Product Programming Challenge in C++"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "C12yoFR6Xonl"
+      },
+      "source": [
+        "## C++"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YL4qJX3tXxdd",
+        "outputId": "1b9937f2-f1a3-4b06-e5a1-949e22249a8e"
+      },
+      "source": [
+        "%%writefile max_pairwise_product1.cpp\n",
+        "#include <iostream>\n",
+        "#include <vector>\n",
+        "#include <algorithm>\n",
+        "\n",
+        "int MaxPairwiseProduct(const std::vector<int>& numbers) {\n",
+        "    int max_product = 0;\n",
+        "    int n = numbers.size();\n",
+        "\n",
+        "    for (int first = 0; first < n; ++first) {\n",
+        "        for (int second = first + 1; second < n; ++second) {\n",
+        "            max_product = std::max(max_product,\n",
+        "                numbers[first] * numbers[second]);\n",
+        "        }\n",
+        "    }\n",
+        "\n",
+        "    return max_product;\n",
+        "}\n",
+        "\n",
+        "int main() {\n",
+        "    int n;\n",
+        "    std::cin >> n;\n",
+        "    std::vector<int> numbers(n);\n",
+        "    for (int i = 0; i < n; ++i) {\n",
+        "        std::cin >> numbers[i];\n",
+        "    }\n",
+        "\n",
+        "    std::cout << MaxPairwiseProduct(numbers) << \"\\n\";\n",
+        "    return 0;\n",
+        "}\n"
+      ],
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing max_pairwise_product1.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KGxaEjvWX__O",
+        "outputId": "97cd4a73-05ec-4176-f7bd-34a239a341e7"
+      },
+      "source": [
+        "!g++ max_pairwise_product1.cpp -o max_pairwise_product1\n",
+        "!./max_pairwise_product1"
+      ],
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "5\n",
+            "1 10\n",
+            "50\n",
+            "100\n",
+            "120\n",
+            "12000\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IeZ3kTjpYmR9"
+      },
+      "source": [
+        "### Test 1: lagest input numbers 200000 200000 in the input"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LQNlZqaqYt7U",
+        "outputId": "6253235a-067b-4d95-a514-3bc3dfc40e82"
+      },
+      "source": [
+        "%%writefile input1.txt\n",
+        "5\n",
+        "1 3 200000 9 200000 23"
+      ],
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting input1.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2Wad2VZUZDxR",
+        "outputId": "52836518-eb2e-41d2-9289-c35233cadc7e"
+      },
+      "source": [
+        "!./max_pairwise_product1 < input1.txt"
+      ],
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "1345294336\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MPcmsxiQZSfE",
+        "outputId": "984cb906-e3aa-467b-afd0-f5bb73d4cc59"
+      },
+      "source": [
+        "%%writefile max_pairwise_product2.cpp\n",
+        "#include <iostream>\n",
+        "#include <vector>\n",
+        "#include <algorithm>\n",
+        "\n",
+        "long long MaxPairwiseProduct(const std::vector<int>& numbers) {\n",
+        "    long long max_product = 0LL;\n",
+        "\t  long long aux_product = 0LL;\n",
+        "    int n = numbers.size();\n",
+        "\n",
+        "    for (int first = 0; first < n; ++first) {\n",
+        "        for (int second = first + 1; second < n; ++second) {\n",
+        "\t\t\t       aux_product =  (long long) numbers[first] * numbers[second];\n",
+        "            if ( max_product < aux_product)  {\n",
+        "\t\t\t\t        max_product = aux_product;\n",
+        "             }\n",
+        "        }\n",
+        "    }\n",
+        "\n",
+        "    return max_product;\n",
+        "}\n",
+        "\n",
+        "int main() {\n",
+        "    int n;\n",
+        "    std::cin >> n;\n",
+        "    std::vector<int> numbers(n);\n",
+        "    for (int i = 0; i < n; ++i) {\n",
+        "        std::cin >> numbers[i];\n",
+        "    }\n",
+        "\n",
+        "    std::cout << MaxPairwiseProduct(numbers) << \"\\n\";\n",
+        "    return 0;\n",
+        "}\n"
+      ],
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting max_pairwise_product2.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "I5pCeOG1Zm7s",
+        "outputId": "cd71cc98-1193-4050-add6-c7ea5cbfa5b9"
+      },
+      "source": [
+        "!g++ max_pairwise_product2.cpp -o max_pairwise_product2\n",
+        "!./max_pairwise_product2 < input1.txt"
+      ],
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "40000000000\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9z9yr5QkeyJF"
+      },
+      "source": [
+        "### Test 2  generate a tests file with the maximun n 200000 numbres and measure time"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oLiMjbAIfPlX",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "585dfa31-36cc-4e54-9731-031e8c911962"
+      },
+      "source": [
+        "%%writefile generador.cpp\n",
+        "#include <iostream>\n",
+        "#include <stdlib.h>\n",
+        "#include <vector>\n",
+        "using namespace std;\n",
+        "int main(){\n",
+        "  int k = 0;\n",
+        "  while(k <= 200000){\n",
+        "  int tam = rand() % 1000;\n",
+        "  k++;\n",
+        "  cout << tam<<\"\\n\";\n",
+        "  vector<int> arr;\n",
+        "  for(int i = 0; i < tam; i++){\n",
+        "      arr.push_back(rand()%10000);\n",
+        "      k++;\n",
+        "  }\n",
+        "  for(int i = 0; i < tam;i++ ){\n",
+        "      cout << arr[i]<<\" \";\n",
+        "  }\n",
+        "  cout << \"\\n\";\n",
+        "  }\n",
+        "  return 0;\n",
+        "}"
+      ],
+      "execution_count": 115,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting generador.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mbR9ANqSr-mD",
+        "outputId": "e91f7090-a2e9-4331-840e-56fc7f34da6e"
+      },
+      "source": [
+        "%%writefile salidagenerador.txt\n",
+        " "
+      ],
+      "execution_count": 116,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting salidagenerador.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZPyfSLfwVgp2"
+      },
+      "source": [
+        "!g++ generador.cpp -o generador\n",
+        "!./generador > salidagenerador.txt"
+      ],
+      "execution_count": 117,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ESlQ3EwmVxlU",
+        "outputId": "ab11d9f2-2cf0-4eb6-bef8-97532907428d"
+      },
+      "source": [
+        "%%writefile multi.cpp\n",
+        "#include <iostream>\n",
+        "using namespace std;\n",
+        "int main(){\n",
+        "  int n,m;\n",
+        "  for(int i = 0; i < 100000;i++){\n",
+        "  cin >> n >> m;\n",
+        "  cout << n <<\" \"<< m <<\"\\n\";\n",
+        "  }\n",
+        "  return 0;\n",
+        "}"
+      ],
+      "execution_count": 74,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting multi.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sc9nOLQrfTm0"
+      },
+      "source": [
+        "### Efficient solution "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aNzWd3rNkyqA"
+      },
+      "source": [
+        "**Efficient solution c++**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iqJaesUwjqrS",
+        "outputId": "b23bd793-eb97-4c38-cbdc-88c62be48510"
+      },
+      "source": [
+        "%%writefile efficient_maxpairwise.cpp\n",
+        "#include <iostream>\n",
+        "#include <vector>\n",
+        "using namespace std;\n",
+        "long long MaxPairwiseProductFast(const vector<int>& numbers){\n",
+        "    int n = numbers.size();\n",
+        "\n",
+        "    int max_index1 = -1;\n",
+        "    for(int i = 0; i<n ; i++){\n",
+        "        if((max_index1 == -1 )|| (numbers[i]> numbers[max_index1])){\n",
+        "            max_index1 = i;\n",
+        "        }\n",
+        "    }\n",
+        "    int max_index2 = -1;\n",
+        "    for(int j = 0; j<n ; j++){\n",
+        "        if((j != max_index1) && ((max_index2 == -1) || (numbers[j] > numbers[max_index2]))){\n",
+        "            max_index2 = j;\n",
+        "        }\n",
+        "    }\n",
+        "    return ((long long)(numbers[max_index1])) * numbers[max_index2];\n",
+        "}\n",
+        "int main(){ \n",
+        "    int n; \n",
+        "    cin >> n;\n",
+        "    vector<int> arr(n);\n",
+        "    for(int i = 0; i < n; i++ ){\n",
+        "        cin >> arr[i];\n",
+        "    }\n",
+        "    cout << MaxPairwiseProductFast(arr)<<\"\\n\";\n",
+        "    \n",
+        "    return 0;\n",
+        "}"
+      ],
+      "execution_count": 129,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting efficient_maxpairwise.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8UzsvN8mkTiq",
+        "outputId": "bc6f30d4-e3c4-4897-f3a1-fca656f5483e"
+      },
+      "source": [
+        "!g++ efficient_maxpairwise.cpp -o efficient_maxpairwise\n",
+        "%time\n",
+        "!./efficient_maxpairwise"
+      ],
+      "execution_count": 200,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "CPU times: user 3 µs, sys: 0 ns, total: 3 µs\n",
+            "Wall time: 8.58 µs\n",
+            "3\n",
+            "1 2\n",
+            "3\n",
+            "6\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bhqiKQG6fjKM"
+      },
+      "source": [
+        "Stress tests "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "yBYnp6KjpxU0"
+      },
+      "source": [
+        "Measure with test file of the maximun n 200000 numbres "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "u_Un8RnRwCwV",
+        "outputId": "b0b06a46-5b39-476a-c166-227554714332"
+      },
+      "source": [
+        "%%writefile stresstests.cpp\n",
+        "#include <iostream>\n",
+        "#include <vector>\n",
+        "using namespace std;\n",
+        "long long MaxPairwiseProductFast(const vector<int>& numbers){\n",
+        "    int n = numbers.size();\n",
+        "\n",
+        "    int max_index1 = -1;\n",
+        "    for(int i = 0; i<n ; i++){\n",
+        "        if((max_index1 == -1 )|| (numbers[i]> numbers[max_index1])){\n",
+        "            max_index1 = i;\n",
+        "        }\n",
+        "    }\n",
+        "    int max_index2 = -1;\n",
+        "    for(int j = 0; j<n ; j++){\n",
+        "        if((j != max_index1) && ((max_index2 == -1) || (numbers[j] > numbers[max_index2]))){\n",
+        "            max_index2 = j;\n",
+        "        }\n",
+        "    }\n",
+        "    return ((long long)(numbers[max_index1])) * numbers[max_index2];\n",
+        "}\n",
+        "long long MaxPairwiseProduct(const std::vector<int>& numbers) {\n",
+        "    long long max_product = 0LL;\n",
+        "\t  long long aux_product = 0LL;\n",
+        "    int n = numbers.size();\n",
+        "\n",
+        "    for (int first = 0; first < n; ++first) {\n",
+        "        for (int second = first + 1; second < n; ++second) {\n",
+        "\t\t\t       aux_product =  (long long) numbers[first] * numbers[second];\n",
+        "            if ( max_product < aux_product)  {\n",
+        "\t\t\t\t        max_product = aux_product;\n",
+        "             }\n",
+        "        }\n",
+        "    }\n",
+        "\n",
+        "    return max_product;\n",
+        "}\n",
+        "int main(){ \n",
+        "    while(true){\n",
+        "    int n; \n",
+        "    cin >> n;\n",
+        "    vector<int> arr(n);\n",
+        "    for(int i = 0; i < n; i++ ){\n",
+        "        cin >> arr[i];\n",
+        "    }\n",
+        "    long long rapida = MaxPairwiseProductFast(arr);\n",
+        "    long long lenta = MaxPairwiseProduct(arr);\n",
+        "    if(rapida != lenta){\n",
+        "    cout << \"Incorrecto\"<<\"\\n\";\n",
+        "    break;\n",
+        "    }else{\n",
+        "        cout << \"Bien\"<<\"\\n\";\n",
+        "    }\n",
+        "    }\n",
+        "    return 0;\n",
+        "}"
+      ],
+      "execution_count": 133,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting stresstests.cpp\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_dxHR6PNw3f1",
+        "outputId": "266149da-2f60-47e4-de3f-84d7c8520a61"
+      },
+      "source": [
+        "!g++ stresstests.cpp -o stress\n",
+        "%time\n",
+        "!./stress < salidagenerador.txt"
+      ],
+      "execution_count": 204,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "CPU times: user 3 µs, sys: 0 ns, total: 3 µs\n",
+            "Wall time: 7.39 µs\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "/bin/bash: line 1:  2067 Segmentation fault      (core dumped) ./stress < salidagenerador.txt\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rydCU4bFfrhG"
+      },
+      "source": [
+        "## Python"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "asv3hR-UY5dJ"
+      },
+      "source": [
+        "**Efficient solution python**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Qov65ARqZEow",
+        "outputId": "c25aae03-5fa4-454c-b026-94d0ff8b87fd"
+      },
+      "source": [
+        "def max_pairwise_product_fast(numbers):\n",
+        "    n = len(numbers)\n",
+        "    max_index1 = -1\n",
+        "    for i in range(n):\n",
+        "        if max_index1 == -1 or numbers[i] > numbers[max_index1]:\n",
+        "            max_index1 = i\n",
+        "\n",
+        "    max_index2 = -1\n",
+        "    for i in range(n):\n",
+        "        if i != max_index1 and (max_index2 == -1 or numbers[i] > numbers[max_index2]):\n",
+        "            max_index2 = i\n",
+        "\n",
+        "    return numbers[max_index1] * numbers[max_index2]   \n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "    input_n = int(input())\n",
+        "    input_numbers = [int(x) for x in input().split()]\n",
+        "    print(max_pairwise_product_fast(input_numbers))"
+      ],
+      "execution_count": 191,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "5\n",
+            "100000 1000000 1000000000 100000000 11000001\n",
+            "100000000000000000\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "q5P6OAEHhUNb",
+        "outputId": "fa14c0e5-c1a8-4f26-bf57-1d8882a099d5"
+      },
+      "source": [
+        "%time\n",
+        "max_pairwise_product_fast([100000, 1000000 ,1000000000, 100000000, 11000001])"
+      ],
+      "execution_count": 205,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "CPU times: user 4 µs, sys: 0 ns, total: 4 µs\n",
+            "Wall time: 8.11 µs\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "100000000000000000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 205
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cqK01OLxCAv0"
+      },
+      "source": [
+        "**Python Stress-test**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XEFVIMyBxSJ9",
+        "outputId": "7192afab-4968-43d5-c05d-0d5e3784e442"
+      },
+      "source": [
+        "%%writefile stress_python.py\n",
+        "#python 3\n",
+        "\n",
+        "def max_pairwise_product(numbers):\n",
+        "    n = len(numbers)\n",
+        "    max_product = 0\n",
+        "    for first in range(n):\n",
+        "        for second in range(first + 1, n):\n",
+        "            max_product = max(max_product,\n",
+        "                numbers[first] * numbers[second])\n",
+        "\n",
+        "    return max_product\n",
+        "\n",
+        "def max_pairwise_product_fast(numbers):\n",
+        "    n = len(numbers)\n",
+        "    max_index1 = -1\n",
+        "    for i in range(n):\n",
+        "        if max_index1 == -1 or numbers[i] > numbers[max_index1]:\n",
+        "            max_index1 = i\n",
+        "\n",
+        "    max_index2 = -1\n",
+        "    for i in range(n):\n",
+        "        if i != max_index1 and (max_index2 == -1 or numbers[i] > numbers[max_index2]):\n",
+        "            max_index2 = i\n",
+        "\n",
+        "    return numbers[max_index1] * numbers[max_index2]   \n",
+        "def estresar():\n",
+        "    contador = 0;\n",
+        "    limite = len(open(\"/content/salidagenerador.txt\").readlines(  ))\n",
+        "    while True:\n",
+        "      input_n = int(input())\n",
+        "      input_numbers = [int(x) for x in input().split()]\n",
+        "      rapida = max_pairwise_product(input_numbers)\n",
+        "      lenta = max_pairwise_product_fast(input_numbers)\n",
+        "      contador = contador + 1\n",
+        "      if(contador <= limite and rapida == lenta):\n",
+        "        print(\"Bien\")\n",
+        "      else: \n",
+        "        print(\"Mal\")\n",
+        "        return \n",
+        "estresar()"
+      ],
+      "execution_count": 210,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting stress_python.py\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fC3fZcVTxsK9",
+        "outputId": "e86a8c93-33a4-452e-81e0-85048719c1a1"
+      },
+      "source": [
+        "%time\n",
+        "!python stress_python.py < salidagenerador.txt"
+      ],
+      "execution_count": 213,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "CPU times: user 3 µs, sys: 1 µs, total: 4 µs\n",
+            "Wall time: 7.39 µs\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Bien\n",
+            "Traceback (most recent call last):\n",
+            "  File \"stress_python.py\", line 40, in <module>\n",
+            "    estresar()\n",
+            "  File \"stress_python.py\", line 33, in estresar\n",
+            "    lenta = max_pairwise_product_fast(input_numbers)\n",
+            "  File \"stress_python.py\", line 25, in max_pairwise_product_fast\n",
+            "    return numbers[max_index1] * numbers[max_index2]   \n",
+            "IndexError: list index out of range\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "s7L2KOSCjp4M"
+      },
+      "source": [
+        "---\n",
+        "*El error en la ultima parte se debe a que el computador se queda sin memoria*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PTatH92OkTn1"
+      },
+      "source": [
+        "#Evidencias coursera"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Q2WFZhXBmceF"
+      },
+      "source": [
+        "## Suma de dos dígitos"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ffRxhUb8mDk3"
+      },
+      "source": [
+        "![](https://drive.google.com/uc?id=1jD8ZedSpbO_ar5x-GnM_fJReeUvfvrg3)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "AJ3BM_OJmZkj"
+      },
+      "source": [
+        "## Maximum Pairwise Product"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fExDowMmmtKV"
+      },
+      "source": [
+        "![](https://drive.google.com/uc?id=1LSIlLyYbhdfQvVBDsW_wsXdlS-N59MgW)"
+      ]
+    }
+  ]
+}
