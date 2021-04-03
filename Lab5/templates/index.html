@@ -1,0 +1,55 @@
+
+#creditos: http://pythonhow.com/data/unit_converter/index.txt
+
+<html>
+  <style>
+    .textbox {
+        text-align: center;
+        margin-top: 50px;
+    }
+    input[type=text] {
+        border: 2px solid green;
+        border-radius: 4px;
+    }
+    button{
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+    }
+    label{
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+    }
+    p{
+        color: blue;
+        font-size: 16px;
+    }
+    div{
+          margin: auto;
+          width: 50%;
+          border: 3px solid green;
+          padding: 10px;
+          justify-content: center;
+    }
+</style>
+<body>
+  <title> Aplicacion grupo 15 </title>
+  <div>
+  <form method="POST" classname = "formulario">
+    <label> Edad: </label>
+    <input type="text" name="textbox" value = {{user_text | safe}}>
+    <p> Su edad es:
+    <label> {{output | safe}} años</label></p>
+    <label> lo que quiere decir que:</label>
+    <p> {{salida | safe}} </p> <br>
+
+    <button type="submit" name="submit">Consultar</button>
+  </form>
+ </div>
+</body>
+</html>
